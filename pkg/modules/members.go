@@ -71,10 +71,11 @@ func (m *MembersModule) Run(session *ldapsession.LDAPSession, attrs []string) er
 	if m.DN == "" {
 		dn, err := m.ChooseGroup(session)
 		if err != nil {
+			fmt.Fprintf(os.Stderr, "[+] Using group: %s\n\n", m.DN)
 			return err
 		}
 		m.DN = dn
-		fmt.Fprintf(os.Stderr, "[+] Using group: %s\n\n", m.DN)
+		//fmt.Fprintf(os.Stderr, "[+] Using group: %s\n\n", m.DN)
 	}
 	sr := session.MakeSimpleSearchRequest(m.Filter(), attrs)
 	return session.ExecuteSearchRequest(sr)
