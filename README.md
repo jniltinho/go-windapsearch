@@ -16,14 +16,10 @@ It is recommended to download pre-compiled binaries for amd64 Linux/Mac/Windows 
 To build from source, I use [mage](https://github.com/magefile/mage), a Make like tool written in Go. Install `mage` then run the mage targets:
 
 ```
-$ git clone https://github.com/ropnop/go-windapsearch.git && cd go-windapsearch
-$ go get github.com/magefile/mage
-$ mage
-Targets:
-  build    Compile windapsearch for current OS and ARCH
-  clean    Delete bin and dist dirs
-  dist     Cross-compile for Windows, Linux, Mac x64 and put in ./dist
-$ mage build
+git clone https://github.com/ropnop/go-windapsearch.git
+cd go-windapsearch
+go install github.com/magefile/mage@latest
+mage build
 $ ./windapsearch --version
 ```
 
